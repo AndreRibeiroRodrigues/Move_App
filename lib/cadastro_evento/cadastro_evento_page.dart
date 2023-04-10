@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:intl/intl.dart';
 
-class CadastroEventoPage extends StatelessWidget {
+class CadastroEventoPage extends StatefulWidget {
   const CadastroEventoPage({Key? key}) : super(key: key);
 
+  @override
+  State<CadastroEventoPage> createState() => _CadastroEventoPageState();
+}
+
+class _CadastroEventoPageState extends State<CadastroEventoPage> {
+  var dataSel;
   @override
   Widget build(BuildContext context) {
     var date;
@@ -46,25 +52,31 @@ class CadastroEventoPage extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                color: Colors.amber,
-                                width: 97,
-                                height: 35,
-                                child: Text(),
+                            Container(
+                              color: Colors.amber,
+                              width: 97,
+                              height: 35,
+                              child: Center(
+                                child: Text(dataSel ?? 'N/A'),
                               ),
+                            ),
+                            SizedBox(
+                              width: 10,
                             ),
                             IconButton(
                               onPressed: () async {
-                                
+                                DateFormat formatter = DateFormat('dd/MM/yyyy');
                                 final dataSelecionada = await showDatePicker(
                                     context: context,
                                     initialDate: DateTime.now(),
                                     firstDate: DateTime.now(),
                                     lastDate: DateTime.now()
                                         .add(const Duration(days: 365)));
-                                        
+                                setState(() {
+                                  dataSel = formatter
+                                      .format(dataSelecionada!)
+                                      .toString();
+                                });
                               },
                               icon: Icon(Icons.calendar_month),
                             ),
