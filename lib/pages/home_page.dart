@@ -37,48 +37,43 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      body: 
-      Padding(
+      body: Padding(
         padding: const EdgeInsets.all(8),
-        child: 
-        Column(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  Container(
+                  // Container(
+                  //   height: 100,
+                  //   width: 100,
+                  //   color: Colors.red,
+                  //   child: Image.asset(
+                  //     'assets/img/Viagens.png',
+                  //     fit: BoxFit.fill,
+                  //   ),
+                  // ),
+                  SizedBox(
                     height: 100,
                     width: 100,
-                    color: Colors.red,
-                    child: Image.asset(
-                      'assets/img/viagens.png',
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                  Container(
-                    height: 100,
-                    width: 100,
-                    color: Colors.red,
                     child: Image.asset(
                       'assets/img/Show.png',
                       fit: BoxFit.fill,
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     height: 100,
                     width: 100,
-                    color: Colors.red,
                     child: Image.asset(
                       'assets/img/Restaurantes.png',
                       fit: BoxFit.fill,
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     height: 100,
                     width: 100,
-                    color: Colors.red,
                     child: Image.asset(
                       'assets/img/Esportes.png',
                       fit: BoxFit.fill,
@@ -88,11 +83,14 @@ class HomePage extends StatelessWidget {
               ),
             ),
             const Divider(),
-            const Text(
-              'Experiencia que voce pode gostar',
-              style: TextStyle(
-                fontSize: 18,
-                fontStyle: FontStyle.normal,
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                'Experiencia que voce pode gostar',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontStyle: FontStyle.normal,
+                ),
               ),
             ),
             Expanded(
@@ -114,9 +112,7 @@ class HomePage extends StatelessWidget {
                           padding: const EdgeInsets.all(8.0),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text('Evento $index')
-                            ],
+                            children: [Text('Evento $index')],
                           ),
                         )
                       ],
@@ -142,7 +138,7 @@ class HomePage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.pushNamed(context, '/cadastroevento'),
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
